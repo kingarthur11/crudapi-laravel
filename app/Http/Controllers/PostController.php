@@ -39,8 +39,8 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $post = new Post();
-        $post->title = $request->title;
-        $post->body = $request->body;
+        $post->name = $request->name;
+        $post->email = $request->email;
         if($post->save()) {
             return new PostResource($post);
         }
@@ -79,8 +79,8 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         $post = Post::findOrFail($id);
-        $post->title = $request->title;
-        $post->body = $request->body;
+        $post->name = $request->name;
+        $post->email = $request->email;
         if($post->save()) 
         {
             return new PostResource($post);
