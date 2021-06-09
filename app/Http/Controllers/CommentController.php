@@ -19,7 +19,7 @@ class CommentController extends Controller
         $comments->body = $request->body;
         $comments->name = $request->name;
         if($comments->save()) {
-            return new CommentResource($comments);
+            return response(['comment' => new CommentResource($comments), 'message' => 'Created successfully'], 201);
         }
     }
     public function show($id)
